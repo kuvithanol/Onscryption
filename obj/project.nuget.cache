@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "v9PJ473dibktJs2u3d2EE3o45eEDDEEFLMk/swWWCMnejJMc4EaIwMwrdP+ykGgOOIEnRhiT5nASETfFtoEaQw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\22bek\\source\\repos\\InscrypShit\\InscrypShit.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\22bek\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\22bek\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\22bek\\.nuget\\packages\\spacewizards.lidgren.network\\0.1.0\\spacewizards.lidgren.network.0.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
