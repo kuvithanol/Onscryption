@@ -26,7 +26,7 @@ namespace InscrypShit
 
         public Onscription()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            _graphics = new GraphicsDeviceManager(this);    
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
