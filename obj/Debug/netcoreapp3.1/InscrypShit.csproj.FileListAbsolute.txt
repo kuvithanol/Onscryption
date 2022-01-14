@@ -22,3 +22,4 @@ C:\Users\22bek\source\repos\InscrypShit\obj\Debug\netcoreapp3.1\InscrypShit.cspr
 C:\Users\22bek\source\repos\InscrypShit\obj\Debug\netcoreapp3.1\InscrypShit.dll
 C:\Users\22bek\source\repos\InscrypShit\obj\Debug\netcoreapp3.1\InscrypShit.pdb
 C:\Users\22bek\source\repos\InscrypShit\obj\Debug\netcoreapp3.1\InscrypShit.genruntimeconfig.cache
+C:\Users\22bek\source\repos\InscrypShit\bin\Debug\netcoreapp3.1\Content\Sprites\card.xnb
