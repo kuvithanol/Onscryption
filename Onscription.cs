@@ -11,7 +11,7 @@ namespace InscrypShit
 {
     public class Onscription : Game
     {
-        public static Gameplay gameplayInstance;
+        public static OnscryptionGame gameplayInstance;
         private static Dictionary<string, Texture2D> pTextures = new Dictionary<string, Texture2D>();
         public static Dictionary<string, Texture2D> textures
         {
@@ -36,6 +36,23 @@ namespace InscrypShit
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        public static Vector2 windowDimensions;
+
+        public static float scaleX
+        {
+            get
+            {
+                return instance.Window.ClientBounds.X / 560;
+            }
+        }
+
+        public static float scaleY
+        {
+            get
+            {
+                return instance.Window.ClientBounds.X / 300;
+            }
+        }
 
         public Onscription()
         {
@@ -60,8 +77,12 @@ namespace InscrypShit
             //{
             //    netPeerConfig.
             //}
-            gameplayInstance = new Gameplay();
-            gameplayInstance.AddCard(new Card(Card.ECardType.Geck), false, 2);
+            gameplayInstance = new OnscryptionGame();
+            for(int i = 0; i < 5; i++)
+            {
+                gameplayInstance.AddCard(new Card(Card.ECardType.Geck), true, i);
+                gameplayInstance.AddCard(new Card(Card.ECardType.Geck), false, i);
+            }
         }
 
         protected override void LoadContent()
@@ -74,10 +95,11 @@ namespace InscrypShit
 
         protected override void Update(GameTime gameTime)
         {
+            windowDimensions = new Vector2(Onscription.instance.Window.ClientBounds.X, Onscription.instance.Window.ClientBounds.Y);
             IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 28770);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                
+                Exit();
             }
 
 
@@ -85,7 +107,8 @@ namespace InscrypShit
             Window.AllowUserResizing = true;
             base.Update(gameTime);
         }
-        
+        Random r = new Random();
+
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);            
@@ -98,10 +121,10 @@ namespace InscrypShit
             {
                 foreach(Drawable.Sprite sprite in drawable.spriteLeaser)
                 {
-                    batch.Draw(sprite.element, sprite.pos, null, Color.White, sprite.rotation, Vector2.Zero, 100, sprite.spriteEffects, 0 - sprite.depth);
-                    Debug.WriteLine("yeah");
+                    batch.Draw(sprite.element, drawable.position + sprite.relativepos, null, Color.White, sprite.rotation, Vector2.Zero, 4, sprite.spriteEffects, sprite.depth);
                 }
             }
+
 
             batch.End();
                      
