@@ -17,6 +17,10 @@ namespace InscrypShit
 
         public void AddCard(Card _card, bool _side, int _row)
         {
+            if(playedCards[_side ? 0 : 1, _row] != null)
+            {
+                throw (new Exception("ImpropperCardPlacement: The game attempted to place a card in an impropper slot"));
+            }
             Drawables.Add(_card);
             playedCards[_side ? 0 : 1, _row] = _card;
             _card.position = new Vector2(((_row + 1.5f) * 100) * Onscription.scaleX, (_side ? 125 : 245) * Onscription.scaleY);
