@@ -14,6 +14,7 @@ namespace InscrypShit
 {
     public class Card : Drawable
     {
+        public string title;
         public Card(Card.ECardType type)
         {
             switch (type)
@@ -23,7 +24,8 @@ namespace InscrypShit
                     health = 1;
                     attack = 1;
                     base.spriteLeaser.Add(new Sprite("card", 1));
-                    base.spriteLeaser.Add(new WordStr("=========!=========", 1) { relativepos = new Vector2(8, 3)});
+                    title = "splambo!";
+                    base.spriteLeaser.Add(new WordStr(title, 1) { relativepos = new Vector2(40 - Onscription.font.MeasureString(title).X / 2, 3)  });
                     return;
 
             }

@@ -1,8 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Lidgren.Network;
+using System.Net;
+using System.Diagnostics;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace InscrypShit
 {
@@ -31,6 +34,7 @@ namespace InscrypShit
             public Texture2D element = null;
             public Vector2 relativepos;
             public Color color;
+
             public float rotation;
             public SpriteEffects spriteEffects;
             public int depth;

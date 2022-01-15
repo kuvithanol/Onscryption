@@ -109,7 +109,6 @@ namespace InscrypShit
 
             Window.AllowUserResizing = true;
             Window.IsBorderless = true;
-            Debug.WriteLine($"{scaleX}, {scaleY}");
 
             base.Update(gameTime);
         }
