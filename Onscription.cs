@@ -11,6 +11,7 @@ namespace InscrypShit
 {
     public class Onscription : Game
     {
+        public static SpriteFont font;
         public static OnscryptionGame gameplayInstance;
         private static Dictionary<string, Texture2D> pTextures = new Dictionary<string, Texture2D>();
         public static Dictionary<string, Texture2D> textures
@@ -88,6 +89,7 @@ namespace InscrypShit
         protected override void LoadContent()
         {
             pTextures.Add("card", Content.Load<Texture2D>("Sprites\\card"));
+            font = Content.Load<SpriteFont>("Sprites\\font");
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
@@ -104,7 +106,11 @@ namespace InscrypShit
 
 
             // TODO: Add your update logic here
+
             Window.AllowUserResizing = true;
+            Window.IsBorderless = true;
+            Debug.WriteLine($"{scaleX}, {scaleY}");
+
             base.Update(gameTime);
         }
         Random r = new Random();
@@ -119,9 +125,14 @@ namespace InscrypShit
 
             foreach(Drawable drawable in gameplayInstance.Drawables)
             {
-                foreach(Drawable.Sprite sprite in drawable.spriteLeaser)
+                foreach (Drawable.Sprite sprite in drawable.spriteLeaser)
                 {
-                    batch.Draw(sprite.element, drawable.position + sprite.relativepos, null, Color.White, sprite.rotation, Vector2.Zero, 4, sprite.spriteEffects, sprite.depth);
+                    if (sprite is Drawable.WordStr str)
+                    {
+                        batch.DrawString(font, str.text, drawable.position + str.relativepos, str.color);
+                    }
+                    else
+                        batch.Draw(sprite.element, drawable.position + sprite.relativepos, null, sprite.color, sprite.rotation, Vector2.Zero, 4, sprite.spriteEffects, sprite.depth);
                 }
             }
 

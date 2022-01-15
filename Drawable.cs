@@ -20,17 +20,31 @@ namespace InscrypShit
         {
             public Sprite(string _element, int _depth)
             {
-                element = Onscription.textures[_element];
+                if (!(this is WordStr))
+                    element = Onscription.textures[_element];
                 relativepos = new Vector2(0, 0);
                 rotation = 0;
                 spriteEffects = SpriteEffects.None;
                 depth = _depth;
+                color = Color.White;
             }
-            public Texture2D element;
+            public Texture2D element = null;
             public Vector2 relativepos;
+            public Color color;
             public float rotation;
             public SpriteEffects spriteEffects;
             public int depth;
+        }
+
+        public class WordStr : Sprite
+        {
+            public WordStr(string _element, int _depth) : base(_element, _depth)
+            {
+                element = null;
+                text = _element;
+                color = Color.Black;
+            }
+            public string text;
         }
     }
 }
