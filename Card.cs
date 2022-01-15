@@ -24,10 +24,17 @@ namespace InscrypShit
                     health = 1;
                     attack = 1;
                     base.spriteLeaser.Add(new Sprite("card", 1));
-                    title = "splambo!";
+                    title = "Geck";
                     base.spriteLeaser.Add(new WordStr(title, 1) { relativepos = new Vector2(40 - Onscription.font.MeasureString(title).X / 2, 3)  });
                     return;
-
+                case ECardType.Vessel:
+                    cost = new Cost(Cost.ECostType.Energy, 1);
+                    health = 2;
+                    attack = 0;
+                    base.spriteLeaser.Add(new Sprite("card", 1));
+                    title = "Vessel";
+                    base.spriteLeaser.Add(new WordStr(title, 1) { relativepos = new Vector2(40 - Onscription.font.MeasureString(title).X / 2, 3) });
+                    return;
             }
         }
 
@@ -59,7 +66,7 @@ namespace InscrypShit
         {
             Geck,
             //Squirrel,
-            //Vessel,
+            Vessel,
             //Skeleton,
             //SaphireMox,
             //EmeraldMox,

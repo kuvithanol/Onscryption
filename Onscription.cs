@@ -82,7 +82,7 @@ namespace InscrypShit
             for(int i = 0; i < 5; i++)
             {
                 gameplayInstance.AddCard(new Card(Card.ECardType.Geck), true, i);
-                gameplayInstance.AddCard(new Card(Card.ECardType.Geck), false, i);
+                gameplayInstance.AddCard(new Card(Card.ECardType.Vessel), false, i);
             }
         }
 
