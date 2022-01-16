@@ -5,10 +5,8 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/22bek/source/repos/InscrypShit/Content/Sprites/card.png</File>
-    <File>C:/Users/22bek/source/repos/InscrypShit/Content/Sprites/font.spritefont</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

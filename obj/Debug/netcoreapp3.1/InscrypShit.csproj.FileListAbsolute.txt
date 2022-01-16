@@ -25,3 +25,7 @@ C:\Users\22bek\source\repos\InscrypShit\obj\Debug\netcoreapp3.1\InscrypShit.genr
 C:\Users\22bek\source\repos\InscrypShit\bin\Debug\netcoreapp3.1\Content\Sprites\card.xnb
 C:\Users\22bek\source\repos\InscrypShit\bin\Debug\netcoreapp3.1\Content\Sprites\File.xnb
 C:\Users\22bek\source\repos\InscrypShit\bin\Debug\netcoreapp3.1\Content\Sprites\font.xnb
+C:\Users\22bek\source\repos\InscrypShit\bin\Debug\netcoreapp3.1\Cyotek.Drawing.BitmapFont.dll
+C:\Users\22bek\source\repos\InscrypShit\bin\Debug\netcoreapp3.1\SpriteFontPlus.dll
+C:\Users\22bek\source\repos\InscrypShit\bin\Debug\netcoreapp3.1\StbImageSharp.dll
+C:\Users\22bek\source\repos\InscrypShit\bin\Debug\netcoreapp3.1\StbTrueTypeSharp.dll

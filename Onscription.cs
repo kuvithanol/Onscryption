@@ -6,6 +6,9 @@ using System.Net;
 using System.Diagnostics;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using SpriteFontPlus;
+using System.Reflection;
 
 namespace InscrypShit
 {
@@ -89,14 +92,26 @@ namespace InscrypShit
         protected override void LoadContent()
         {
             pTextures.Add("card", Content.Load<Texture2D>("Sprites\\card"));
-            font = Content.Load<SpriteFont>("Sprites\\font");
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
+
+            string fontdata;
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("InscrypShit.Content.test.fnt"))
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    fontdata = reader.ReadToEnd();
+                }
+
+                font = BMFontLoader.Load(fontdata, name => Assembly.GetExecutingAssembly().GetManifestResourceStream("InscrypShit.Content." + name), GraphicsDevice);
+            }
+
+            // As we use font with one texture, always return it independently from requested name  
         }
 
         protected override void Update(GameTime gameTime)
-        {
+        {    
             windowDimensions = new Vector2(Onscription.instance.Window.ClientBounds.X, Onscription.instance.Window.ClientBounds.Y);
             IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 28770);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
