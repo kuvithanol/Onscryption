@@ -18,6 +18,7 @@ namespace InscrypShit
         }
         public List<Sprite> spriteLeaser;
         public Vector2 position;
+        public Animation animation;
 
         public class Sprite
         {
@@ -51,4 +52,48 @@ namespace InscrypShit
             public string text;
         }
     }
+
+    public class Animation
+    {
+        public class actionFrame
+        {
+            public actionFrame(float milliseconds, Vector2 motion)
+            {
+                this.duration = milliseconds;
+                this.motion = motion;
+            }
+            public float duration;
+            public Vector2 motion;
+        }
+        public Animation(List<actionFrame> actionFrames)
+        {
+            this.actionFrames = actionFrames;
+        }
+        private List<actionFrame> actionFrames;
+
+        public Vector2 Proceed(float deltaTime)
+        {
+            if (actionFrames.Count > 0)
+            {
+                actionFrames[0].duration -= deltaTime;
+
+                float holdover;
+                if (actionFrames[0].duration <= 0)
+                {
+                    Debug.WriteLine($"deleting this frame");
+                    actionFrames.Remove(actionFrames[0]);
+                    return Vector2.Zero;
+                }
+                else
+                {
+                    Debug.WriteLine($"the frame is moving: {deltaTime} , {actionFrames[0].duration}");
+                    return actionFrames[0].motion * deltaTime / 1000;
+                }
+            }
+            Debug.WriteLine("no more frames!");
+            return Vector2.Zero;
+        }
+    }
+
+    
 }

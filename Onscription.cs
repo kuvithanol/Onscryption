@@ -15,7 +15,6 @@ namespace InscrypShit
     public class Onscription : Game
     {
         public static SpriteFont font;
-        public static OnscryptionGame gameplayInstance;
         private static Dictionary<string, Texture2D> pTextures = new Dictionary<string, Texture2D>();
         public static Dictionary<string, Texture2D> textures
         {
@@ -34,7 +33,6 @@ namespace InscrypShit
             ConnectionTimeout = 10,
             MaximumConnections = 100
         };
-        static NetServer server = new NetServer(netPeerConfig);
 
         static NetClient client = new NetClient(netPeerConfig);
 
@@ -49,7 +47,6 @@ namespace InscrypShit
                 return instance.Window.ClientBounds.X / 560;
             }
         }
-
         public static float scaleY
         {
             get
@@ -75,17 +72,16 @@ namespace InscrypShit
             //try
             //{
             //    server.Start();
-            //    client.Start();
+                client.Start();
             //}
             //catch(Exception e)
             //{
             //    netPeerConfig.
             //}
-            gameplayInstance = new OnscryptionGame();
             for(int i = 0; i < 5; i++)
             {
-                gameplayInstance.AddCard(new Card(Card.ECardType.Geck), true, i);
-                gameplayInstance.AddCard(new Card(Card.ECardType.Vessel), false, i);
+                OnscryptionGame.AddCard(new Card(Card.ECardType.Geck), true, i);
+                OnscryptionGame.AddCard(new Card(Card.ECardType.Vessel), false, i);
             }
         }
 
@@ -116,7 +112,15 @@ namespace InscrypShit
             IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 28770);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
+                client.Shutdown("goo bye");
                 Exit();
+            }
+
+
+            if (Keyboard.GetState().IsKeyDown(Keys.W))
+            {
+                List<Animation.actionFrame> Frames = new List<Animation.actionFrame> { new Animation.actionFrame(100, new Vector2(80, 80)) , new Animation.actionFrame(100, new Vector2(-80, -80)) };
+                OnscryptionGame.cardField[1][0].animation = new Animation(Frames);
             }
 
 
@@ -137,8 +141,13 @@ namespace InscrypShit
             SpriteBatch batch = new SpriteBatch(GraphicsDevice);
             batch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, null);
 
-            foreach(Drawable drawable in gameplayInstance.Drawables)
+            foreach(Drawable drawable in OnscryptionGame.drawables)
             {
+                if(drawable.animation != null)
+                {
+                    drawable.position += drawable.animation.Proceed((float)gameTime.ElapsedGameTime.Milliseconds);
+                }
+
                 foreach (Drawable.Sprite sprite in drawable.spriteLeaser)
                 {
                     if (sprite is Drawable.WordStr str)

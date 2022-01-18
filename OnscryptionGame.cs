@@ -9,21 +9,33 @@ using System.Collections.Generic;
 
 namespace InscrypShit
 {
-    public class OnscryptionGame
+    public static class OnscryptionGame
     {
-        public List<Drawable> Drawables = new List<Drawable>();
+        public static List<Drawable> drawables = new List<Drawable>();
 
-        public Card?[,] playedCards = new Card?[2, 5];
+        public static Card[][] cardField = new Card[2][] { new Card[5], new Card[5]};
 
-        public void AddCard(Card _card, bool _side, int _row)
+        public static void AddCard(Card _card, bool _side, int _row)
         {
-            if(playedCards[_side ? 0 : 1, _row] != null)
+            if(cardField[_side ? 0 : 1][ _row] != null)
             {
                 throw (new Exception("ImpropperCardPlacement: The game attempted to place a card in an impropper slot"));
             }
-            Drawables.Add(_card);
-            playedCards[_side ? 0 : 1, _row] = _card;
+
+            _card.location = new Card.CardLocation(_side, _row);
+            drawables.Add(_card);
+            cardField[_side ? 0 : 1][ _row] = _card;
             _card.position = new Vector2(((_row + 1.5f) * 100) * Onscription.scaleX, (_side ? 125 : 245) * Onscription.scaleY);
+        }
+
+        public static void KillCard(bool _side, int _row)
+        {
+            if(cardField[_side ? 0 : 1][_row] == null)
+            {
+                throw (new Exception("ImpropperCardKilling: The game attempted to kill a nonexistent card"));
+            }
+            drawables.Remove(cardField[_side ? 0 : 1][_row]);
+            cardField[_side ? 0 : 1][_row] = null;
         }
     }
 }

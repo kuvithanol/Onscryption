@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/22bek/source/repos/InscrypShit/Content/Sprites/card.png</SourceFile>
-  <SourceTime>2022-01-14T13:44:59.567651-06:00</SourceTime>
-  <DestFile>C:/Users/22bek/source/repos/InscrypShit/Content/bin/DesktopGL/Content/Sprites/card.xnb</DestFile>
-  <DestTime>2022-01-14T13:45:06.6213476-06:00</DestTime>
+  <SourceFile>C:/Users/ness from undertale/Desktop/Repos/Onscryption/Content/Sprites/card.png</SourceFile>
+  <SourceTime>2022-01-17T16:49:14.8058146-06:00</SourceTime>
+  <DestFile>C:/Users/ness from undertale/Desktop/Repos/Onscryption/Content/bin/DesktopGL/Content/Sprites/card.xnb</DestFile>
+  <DestTime>2022-01-17T16:50:21.3393006-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T11:17:54-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
